@@ -19,7 +19,7 @@ import static org.valeryvash.util.ServletHelper.jsonResponsePrinter;
 @WebServlet(name = "EventRestControllerV1", value = "/api/v1/events/*")
 public class EventRestControllerV1 extends HttpServlet {
 
-    private final String servletUrlPattern = "/api/v1/events";
+    private final String servletUrlPattern = "/api/v1/events/";
     private final EventService eventService;
 
     private final Gson gson;
