@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8ee1ca93-b33e-4ff1-9ad3-7bc82390d11f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/dto/APIResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/dto/EventPostResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/dto/FilePostRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/dto/FilePostResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/dto/UserPostRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/dto/UserPostResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/model/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/model/EventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/model/File.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/repository/EventRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/repository/FileRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/repository/GenericRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/repository/impl/HibernateEventRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/repository/impl/HibernateFileRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/repository/impl/HibernateUserRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/service/EventService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/service/FileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/servlet/EventRestControllerV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/servlet/FileRestControllerV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/servlet/UserRestControllerV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/util/HibernateSessionProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/util/ServiceChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/valeryvash/util/ServletHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Postman_OpenAPI_v03.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_tables.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__Populate_tables.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/valeryvash/service/EventServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/valeryvash/service/FileServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/valeryvash/service/UserServiceTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="OpenAPI" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2E1vD0H8ULdTWu5WbTllgHvy9Y4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/79227/IdeaProjects/crud_REST_API_v02/src/main/java/org/valeryvash/servlet&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;MySQL&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.valeryvash.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\79227\IdeaProjects\crud_REST_API_v02\src\main\java\org\valeryvash\servlet" />
+      <recent name="C:\Users\79227\IdeaProjects\crud_REST_API_v02\src\main" />
+      <recent name="C:\Users\79227\IdeaProjects\crud_REST_API_v02\src\main\java\org\valeryvash\repository" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.valeryvash.service" />
+      <recent name="org.valeryvash.repository.impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.valeryvash.servlet" />
+      <recent name="org.valeryvash.util" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.UserServiceTest.passNotPositiveId">
+    <configuration name="EventServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="crud_REST_API_v02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.valeryvash.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.valeryvash.service" />
+      <option name="MAIN_CLASS_NAME" value="org.valeryvash.service.EventServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileServiceTest.passNotPositiveId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="crud_REST_API_v02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.valeryvash.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.valeryvash.service" />
+      <option name="MAIN_CLASS_NAME" value="org.valeryvash.service.FileServiceTest" />
+      <option name="METHOD_NAME" value="passNotPositiveId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileServiceTest.passNullToMethods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="crud_REST_API_v02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.valeryvash.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.valeryvash.service" />
+      <option name="MAIN_CLASS_NAME" value="org.valeryvash.service.FileServiceTest" />
+      <option name="METHOD_NAME" value="passNullToMethods" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.passNotPositiveId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="crud_REST_API_v02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.valeryvash.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.valeryvash.service" />
+      <option name="MAIN_CLASS_NAME" value="org.valeryvash.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="passNotPositiveId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.passNullToMethods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="crud_REST_API_v02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.valeryvash.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.valeryvash.service" />
+      <option name="MAIN_CLASS_NAME" value="org.valeryvash.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="passNullToMethods" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="C:\Users\79227\IdeaProjects\crud_REST_API_v02\gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0/openapi-generator-cli-5.0.0.jar" />
+      <option name="jdkPath" value="" />
+      <option name="language" value="java" />
+      <option name="specificationPath" value="C:\Users\79227\IdeaProjects\crud_REST_API_v02\src\main\resources\Postman_OpenAPI_v03.yaml" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserServiceTest.passNotPositiveId" />
+        <item itemvalue="JUnit.UserServiceTest.passNullToMethods" />
+        <item itemvalue="JUnit.EventServiceTest" />
+        <item itemvalue="JUnit.FileServiceTest.passNotPositiveId" />
+        <item itemvalue="JUnit.FileServiceTest.passNullToMethods" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ee1ca93-b33e-4ff1-9ad3-7bc82390d11f" name="Changes" comment="" />
+      <created>1661775787030</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661775787030</updated>
+      <workItem from="1661775788389" duration="5474000" />
+      <workItem from="1661790729524" duration="14767000" />
+      <workItem from="1661887921744" duration="8101000" />
+      <workItem from="1661929507442" duration="2912000" />
+      <workItem from="1661965553193" duration="3541000" />
+      <workItem from="1661973177283" duration="12584000" />
+      <workItem from="1662039885567" duration="14745000" />
+      <workItem from="1662103505027" duration="13538000" />
+      <workItem from="1662151289961" duration="11468000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/org/valeryvash/service/UserServiceTest.java</url>
+          <line>43</line>
+          <properties class="org.valeryvash.service.UserServiceTest" method="passNotPositiveId">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

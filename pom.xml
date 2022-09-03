@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.valeryvash</groupId>
+    <artifactId>crud_REST_API_v02</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>war</packaging>
+
+    <name>crud_REST_API_v02</name>
+        <url>https://vshestak-servlets.herokuapp.com</url>
+<!--    <url>http://localhost:8088</url>-->
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--        jpa and hibernate-->
+        <jakarta.version>3.1.0</jakarta.version>
+        <hibernate.version>6.1.2.Final</hibernate.version>
+        <!--        mysql connectors versions-->
+        <hibernate.mysql.connector.version>8.0.30</hibernate.mysql.connector.version>
+        <flyway-mysql-connector.version>8.0.30</flyway-mysql-connector.version>
+        <!--        servlet version-->
+        <servlet.version>4.0.1</servlet.version>
+        <!--        Heroku database migration stuff   -->
+        <!--        Only old community version of flyway compatible with current version of ClearDB (MySQL 5.6) -->
+        <!--        Enterprise version of Flyway compatible with MySQL 5.6 -->
+        <flyway-maven-plugin.version>5.2.4</flyway-maven-plugin.version>
+        <cleardb.database.url>${env.CLEARDB_DATABASE_URL}</cleardb.database.url>
+        <!--        Tomcat-->
+        <tomcat7.plugin.version>2.2</tomcat7.plugin.version>
+        <!--        Heroku-->
+        <heroku.maven.plugin.version>3.0.3</heroku.maven.plugin.version>
+        <heroku.app.name>vshestak-servlets</heroku.app.name>
+        <heroku.jdk.version>17.0.4</heroku.jdk.version>
+        <!--        Tests-->
+        <junit.version>5.9.0</junit.version>
+        <mockito.version>4.7.0</mockito.version>
+        <!--        Other staff-->
+        <gson.version>2.9.0</gson.version>
+        <lombok.version>1.18.24</lombok.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>${jakarta.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${hibernate.mysql.connector.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>crud_REST_API_v01</finalName>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
+                    <configuration>
+                        <skipTests>false</skipTests>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.2</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>${tomcat7.plugin.version}</version>
+                <configuration>
+                    <path>/</path>
+                    <port>8080</port>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>${flyway-maven-plugin.version}</version>
+                <configuration>
+                    <url>${cleardb.database.url}</url>
+<!--                    <url>jdbc:mysql://root:root@localhost:3306/crud_localhost_schema</url>-->
+                </configuration>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${flyway-mysql-connector.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>${heroku.maven.plugin.version}</version>
+                <configuration>
+                    <appName>${heroku.app.name}</appName>
+                    <jdkVersion>${heroku.jdk.version}</jdkVersion>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>

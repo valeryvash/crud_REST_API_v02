@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <!--        these params allows to show me hibernate logs at heroku console. -->
+        <!--        By the way, these params assign at code (via Map<String,String> settings) doesn't take effect -->
+        <property name="hibernate.jdbc.time_zone">UTC</property>
+        <property name="show_sql">false</property>
+        <property name="use_sql_comments">false</property>
+<!--fixme change to "validate" before deploy-->
+        <property name="hbm2ddl.auto"> validate </property>
+    </session-factory>
+</hibernate-configuration>

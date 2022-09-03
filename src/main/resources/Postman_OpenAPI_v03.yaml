@@ -1,0 +1,459 @@
+openapi: 3.0.3
+info:
+  title: VaSh crud_REST_API_v02
+  description: There is an empty description for my homework app
+  version: 1.0.0
+  contact:
+    name: Valery Shestak
+    email: shestak.valery@gmail.com
+    url: https://github.com/valeryvash
+  license:
+    name: MIT
+    url: 'https://opensource.org/licenses/MIT'
+servers:
+  - url: 'http://localhost:8088'
+    description: Local host test server
+  - url: 'https://vshestak-servlets.herokuapp.com'
+    description: Heroku deployment server
+tags:
+  - name: users
+    description: Operations about users
+  - name: events
+    description: Operations about events
+  - name: files
+    description: Operations about files
+security:
+  - BasicAuth:
+      - read
+      - write
+paths:
+  /users:
+    post:
+      tags:
+        - users
+      summary: Create a new one user
+      description: Create new one user with(out) files. All new ones will be created with new events.
+      operationId: addUser
+      requestBody:
+        $ref: '#/components/requestBodies/UserPostRequestBody'
+      responses:
+        201:
+          $ref: '#/components/responses/UserPostResponseBody'
+        405:
+          description: Invalid data
+    get:
+      tags:
+        - users
+      summary: Get all users info
+      description: Get all user info
+      operationId: getUsers
+      responses:
+        200:
+          $ref: '#/components/responses/UserGetAllResponseBody'
+    put:
+      tags:
+        - users
+      summary: Update user.
+      description: Update user name and/or event collection.
+      operationId: updateUser
+      requestBody:
+        $ref: "#/components/requestBodies/UserPutRequestBody"
+      responses:
+        200:
+          $ref: '#/components/responses/UserGetAllResponseBody'
+  /users/{userId}:
+    get:
+      tags:
+        - users
+      summary: Get user info
+      description: Get user info with event collection
+      operationId: getUserById
+      parameters:
+        - name: userId
+          in: path
+          description: Corresponding id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          $ref: '#/components/responses/UserPostResponseBody'
+        404:
+          description: User not found
+    delete:
+      tags:
+        - users
+      summary: Delete user
+      description: Delete user by id
+      operationId: deleteUserById
+      parameters:
+        - name: userId
+          in: path
+          description: Corresponding id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          $ref: '#/components/responses/UserPostResponseBody'
+        404:
+          description: User not found
+  /events:
+    get:
+      tags:
+        - events
+      summary: Get all events info
+      description: Get all events info
+      operationId: getEvents
+      responses:
+        200:
+          $ref: '#/components/responses/EventGetAllResponseBody'
+  /events/{eventId}:
+    get:
+      tags:
+        - events
+      description: Get event info
+      operationId: getEventById
+      parameters:
+        - name: eventId
+          in: path
+          description: Corresponding id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          $ref: '#/components/responses/EventGetResponseBody'
+        404:
+          description: Event not found
+  /files:
+    post:
+      tags:
+        - files
+      description: Add new file to the user
+      operationId: addFile
+      requestBody:
+        $ref: '#/components/requestBodies/FilePostRequestBody'
+      responses:
+        201:
+          $ref: '#/components/responses/FilePostResponseBody'
+    get:
+      tags:
+        - files
+      description: Get all files info
+      operationId: getFiles
+      responses:
+        200:
+          $ref: '#/components/responses/FileGetAllPostResponseBody'
+    put:
+      tags:
+        - files
+      description: Update file info
+      operationId: updateFile
+      requestBody:
+        $ref: '#/components/responses/FilePostResponseBody'
+      responses:
+        200:
+         $ref: '#/components/responses/FilePostResponseBody'
+  /files/{fileId}:
+    get:
+      tags:
+        - files
+      description: get related file info
+      operationId: getFileById
+      parameters:
+        - name: fileId
+          in: path
+          description: related file id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          $ref: '#/components/schemas/File'
+    delete:
+      tags:
+        - files
+      description: Change file event evenType to  DELETED. File will not be physically removed from persisted context.
+      operationId: deleteFileById
+      parameters:
+        - name: fileId
+          in: path
+          description: related file id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          $ref: '#/components/schemas/File'
+components:
+  schemas:
+    ApiResponse:
+      description: A json object response
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int
+          example: 200
+        message:
+          type: string
+          example: 'Something goes wrong message'
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        timeStamp:
+          type: string
+          format: date-time
+        eventType:
+          $ref: '#/components/schemas/EventType'
+        file:
+          $ref: '#/components/schemas/File'
+    EventType:
+      type: string
+      enum:
+        - CREATED
+        - DELETED
+      default:
+        - CREATED
+    File:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        filePath:
+          type: string
+  requestBodies:
+    UserPostRequestBody:
+      description: A JSON object containing user information
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 'SomeName'
+              files:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    fileName:
+                      type: string
+                      example: 'some file name.txt'
+                    filePath:
+                      type: string
+                      example: '/some/file/location/'
+            required:
+              - name
+    UserPutRequestBody:
+      description: Body for user name and/or event collection update
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+              name:
+                type: string
+                example: 'SomeName'
+              events:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                    timeStamp:
+                      type: string
+                      format: date-time
+                    evenType:
+                      type: string
+                      description: 'Event type'
+                      default: 'CREATED'
+                      enum:
+                        - 'CREATED'
+                        - 'DELETED'
+                    fileId:
+                      type: integer
+                      format: int64
+                    fileName:
+                      type: string
+                    filePath:
+                      type: string
+            required:
+              - id
+              - name
+          example:
+            id: 1
+            name: 'user'
+            events:
+              id: 55
+              timeStamp: 'Aug 13, 2022, 8:58:52 PM'
+              evenType: 'CREATED'
+              fileId: 75
+              fileName: 'secrets.txt'
+
+              filePath: '//home/'
+    FilePostRequestBody:
+      description: Body for new file creation for user
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 'SomeFileName'
+              filePath:
+                type: string
+                example: "//home/"
+              userId:
+                type: integer
+                format: int64
+                description: related user id
+
+  responses:
+    UserPostResponseBody:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+              name:
+                type: string
+                example: 'SomeName'
+              events:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                    timeStamp:
+                      type: string
+                      format: date-time
+                    evenType:
+                      type: string
+                      description: 'Event type'
+                      default: 'CREATED'
+                      enum:
+                        - 'CREATED'
+                        - 'DELETED'
+                    fileId:
+                      type: integer
+                      format: int64
+                    fileName:
+                      type: string
+                    filePath:
+                      type: string
+            required:
+              - id
+              - name
+          example:
+            id: 1
+            name: 'user'
+            events:
+              id: 55
+              timeStamp: 'Aug 13, 2022, 8:58:52 PM'
+              evenType: 'CREATED'
+              fileId: 75
+              fileName: 'secrets.txt'
+              filePath: '//home/'
+    UserGetAllResponseBody:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/User"
+    EventGetAllResponseBody:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/Event"
+    EventGetResponseBody:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Event"
+    FilePostResponseBody:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+              name:
+                type: string
+                example: 'SomeName'
+              filePath:
+                type: string
+                example: '//home/'
+    FileGetAllPostResponseBody:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/File"
+    ApiExceptionResponse:
+      description: A json object response while handled exception occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int
+                example: 40*
+              message:
+                type: string
+                example: Something not found
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
